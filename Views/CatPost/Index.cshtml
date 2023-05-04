@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Catstagram.Models.CatPost>
+<html>
+
+
+
+<body>
+    <h1>Feed</h1>
+    <p>
+        <a asp-action="Create">Create New Post</a>
+    </p>
+
+    <div>
+        @foreach (var post in Model)
+        {
+            <div class="post">
+                <img src="@post.Image" alt="@post.AuthorName" />
+                <h3>@post.AuthorName</h3>
+                <p class="comment">@post.Comment</p>
+                <p>@post.Date</p>
+                <div class="actions">
+                    <a asp-action="Details" asp-route-id="@post.Id">Details</a> |
+                    <a asp-action="Edit" asp-route-id="@post.Id">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@post.Id">Delete</a>
+                </div>
+            </div>
+        }
+    </div>
+
+</body>
+</html>
+
+@section scripts {
+    <script>$(document).ready(function () {
+            $('.post .comment').each(function () {
+                var comment = $(this).text();
+                var regex = /\B#\w*[a-zA-Z]+\w*/g;
+                var hashtags = comment.match(regex);
+                if (hashtags !== null) {
+                    var newComment = comment.replace(regex, '<a href="#" class="hashtag">$&</a>');
+                    $(this).html(newComment);
+                }
+            });
+
+            $('.hashtag').click(function (event) {
+                event.preventDefault();
+                var clickedHashtag = $(this).text().substring(1);
+                $('.post').each(function () {
+                    var postComment = $(this).find('.comment').text();
+                    if (postComment.indexOf(clickedHashtag) >= 0) {
+                        $(this).show();
+                    } else {
+                        $(this).hide();
+                    }
+                });
+            });
+        });</script>
+}
+
+

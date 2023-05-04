@@ -1,0 +1,62 @@
+﻿html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+
+/*body {
+  margin-bottom: 60px;
+}
+*/
+
+/* -------------------------------------- INDEX -------------------------------------- */
+
+body {
+    background: linear-gradient(to bottom right, #FFC0CB, #FFB6C1, #FFA07A, #FFD700, #ADFF2F);
+    font-family: Arial, sans-serif;
+}
+
+.post {
+    display: inline-block;
+    width: 300px;
+    margin: 10px;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    text-align: center;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.actions {
+    margin-top: 10px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: center
+}
